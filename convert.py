@@ -1,4 +1,4 @@
-import os, subprocess, sys
+import os, subprocess, sys, shutil
 
 inDir  = sys.argv[1]
 outDir = sys.argv[2]
@@ -39,9 +39,10 @@ def main():
     if process == 1:
       log.write('Could not process: {0}\n'.format(filename))
       print ('====== Could not process: {0}'.format(filename))
-      with open(outDir + filename + '.corrupt', 'w+') as f:
-        f.write('Invalid Format')
-        f.close()
+      shutil.copy2(inDir + filename, outDir + filename + '.corrupt')
+      # with open(outDir + filename + '.corrupt', 'w+') as f:
+      #   f.write('Invalid Format')
+      #   f.close()
     else:
       print ('converted ' + filename)
 
