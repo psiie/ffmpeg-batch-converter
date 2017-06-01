@@ -1,7 +1,7 @@
 import os, subprocess, sys
 
-inDir  = sys.argv[1] + 'content/' or 'ka-lite-en/content/'
-outDir = sys.argv[2] + 'content/' or 'ka-lite-en-converted/content/'
+inDir  = sys.argv[1]
+outDir = sys.argv[2]
 ffmpeg = [
     "ffmpeg", 
     "-i", 
